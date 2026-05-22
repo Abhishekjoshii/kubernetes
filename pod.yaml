@@ -4,7 +4,7 @@ metadata:
   name: abhishek-pod
 spec:
   containers:
-  - name: ghee
-    image: abhishekjoshhi/ghee
-    ports:
-    - containerPort: 5656
+    - name: ghee
+      image: abhishekjoshhi/ghee
+      ports:
+        - containerPort: 5656
