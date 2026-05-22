@@ -8,7 +8,7 @@ spec:
     image: abhishekjoshhi/ghee
     ports:
     - containerPort: 5656
-  -name : vegetable
+  - name : vegetable
     image: abhishekjoshhi/veg2
     ports:
     - containerPort: 3000
