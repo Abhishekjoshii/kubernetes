@@ -4,11 +4,11 @@ metadata:
   name: abhishek-pod
 spec:
   containers:
-  - name: ghee
-    image: abhishekjoshhi/ghee
-    ports:
-    - containerPort: 5656
-  - name : vegetable
-    image: abhishekjoshhi/veg2
-    ports:
-    - containerPort: 3000
+    - name: ghee
+      image: abhishekjoshhi/ghee:v1.0.0
+      ports:
+        - containerPort: 5656
+    - name: vegetable
+      image: abhishekjoshhi/veg1:v1.0.0
+      ports:
+        - containerPort: 3000
