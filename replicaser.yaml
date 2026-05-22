@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: ghee
-          image: abhishekjoshhi/ghee
+          image: abhishekjoshhi/ghee:v1.0.0
           ports:
             - containerPort: 5656
