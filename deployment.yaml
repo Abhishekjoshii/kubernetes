@@ -19,3 +19,7 @@ spec:
           image: abhishekjoshhi/fitness:v1.0.0
           ports:
             - containerPort: 5000
+        - name : nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 800
