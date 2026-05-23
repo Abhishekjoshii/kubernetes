@@ -1,7 +1,7 @@
 apiVersion : apps/v1
 kind : Deployment
 metadata:
-  name : abhishek-deployment
+  name : abhishek-deployment1
   labels:
     first: app
 spec:
