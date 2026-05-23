@@ -27,8 +27,8 @@ metadata:
 spec:
   selector:
    app: web
-ports:
+  ports:
   - protocol: TCP
     port: 5005
     targetPort: 5000
-type: ClusterIP
+  type: ClusterIP
