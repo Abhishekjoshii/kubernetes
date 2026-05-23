@@ -19,7 +19,16 @@ spec:
           image: abhishekjoshhi/fitness:v1.0.0
           ports:
             - containerPort: 5000
-        - name : nginx
-          image: nginx:latest
-          ports:
-            - containerPort: 800
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abhishek-service
+spec:
+  selector:
+   app: web
+ports:
+  - protocol: TCP
+    port: 5005
+    targetPort: 5000
+type: ClusterIP
