@@ -8,11 +8,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: web
+      app: fitness
   template:
     metadata:
       labels:
-        app: web
+        app: fitness
     spec:
       containers:
         - name: fitness
@@ -26,9 +26,9 @@ metadata:
   name: abhishek-service
 spec:
   selector:
-   app: web
+    app: fitness
   ports:
-  - protocol: TCP
-    port: 5005
-    targetPort: 5000
+    - protocol: TCP
+      port: 5005
+      targetPort: 5000
   type: ClusterIP
