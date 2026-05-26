@@ -1,7 +1,7 @@
 apiVersion : apps/v1
 kind : Deployment
 metadata:
-  name : abhishek-deployment
+  name : {{.Values.deployment.name}}
   labels:
     first: app
 spec:
@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: {{.Values.labels.fitness}}
-    spec:
+    spec: 
       containers:
         - name: {{.Values.containers.name}}
           image: {{.Values.containers.image}}
