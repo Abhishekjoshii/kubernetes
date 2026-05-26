@@ -1,0 +1,27 @@
+namespace:
+  name: abhishek-ns
+replicas: 1
+labels:
+  app: fitness
+  container:
+  -  name: fitness
+     port: 5000
+service:
+  name: abhishek-service
+  port: 5005
+  targetPort: 5000
+  type: LoadBalancer
+configMap:
+  name: abhishek-configmap
+  data:
+    DB_HOST: Mongodb
+    DB_PORT: "27017"
+    DB_USER: admin
+    APP_name: fitness-app
+    APP_port: "5000"
+secret:
+  name: abhishek-secret
+  type: Opaque
+  data:
+    DB_USER: QURNSU4=
+    DB_PASSWORD: YWRtaW4=

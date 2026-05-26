@@ -1,0 +1,39 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata:
+  name : abhishek-deployment
+  labels:
+    first: app
+spec:
+  replicas: {{.Values.replicas}}
+  selector:
+    matchLabels:
+      app: fitness
+  template:
+    metadata:
+      labels:
+        app: {{.Values.labels.fitness}}
+    spec:
+      containers:
+        - name: {{.Values.containers.name}}
+          image: {{.Values.containers.image}}
+          ports:
+            - containerPort: {{.Values.containers.port}}
+          envFrom:
+            - configMap:
+                name: {{.Values.configMapRef.name}}
+              secretRef:
+                name: {{.Values.secret.name}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.service.name}}
+spec:
+  selector:
+    app: fitness
+  ports:
+    - protocol: TCP
+      port: {{.Values.service.port}}
+      targetPort: {{.Values.service.targetPort}}
+  type: {{.Values.service.type}}
