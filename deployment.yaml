@@ -2,10 +2,11 @@ apiVersion : apps/v1
 kind : Deployment
 metadata:
   name : abhishek-deployment
+  namespace: abhishek-namespace
   labels:
     first: app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: fitness
@@ -19,11 +20,15 @@ spec:
           image: abhishekjoshhi/fitness:v1.0.0
           ports:
             - containerPort: 5000
+              envFrom:
+                - configMapRef:
+                    name: abhishek-configmap
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: abhishek-service
+  namespace: abhishek-namespace
 spec:
   selector:
     app: fitness
