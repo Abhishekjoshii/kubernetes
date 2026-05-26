@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: abhishek-configmap
+data:
+  DB_HOST: Mongodb
+  DB_PORT: "27017"
+  DB_USER: admin
+  APP_name: fitness-app
+  APP_port: "5000"
+  
