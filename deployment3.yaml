@@ -1,0 +1,39 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata:
+  name : abhishek-deployment
+  namespace: abhishek-namespace
+  labels:
+    first: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecommerce
+  template:
+    metadata:
+      labels:
+        app: ecommerce
+    spec:
+      containers:
+        - name: ecommerce1
+          image: abhishekjoshhi/ecomm1:v1.0.0
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: abhishek-configmap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abhishek-service1
+  namespace: abhishek-namespace
+spec:
+  selector:
+    app: ecommerce
+  ports:
+    - protocol: TCP
+      port: 5005
+      targetPort: 5000
+  type: LoadBalancer
