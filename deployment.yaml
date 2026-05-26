@@ -20,9 +20,9 @@ spec:
           image: abhishekjoshhi/fitness:v1.0.0
           ports:
             - containerPort: 5000
-              envFrom:
-                - configMapRef:
-                    name: abhishek-configmap
+          envFrom:
+            - configMapRef:
+                name: abhishek-configmap
 ---
 apiVersion: v1
 kind: Service
@@ -36,4 +36,4 @@ spec:
     - protocol: TCP
       port: 5005
       targetPort: 5000
-  type: ClusterIP
+  type: LoadBalancer
